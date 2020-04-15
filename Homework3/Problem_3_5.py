@@ -8,6 +8,7 @@ cities = ['Boston', 'Buffalo', 'Chicago', 'Dallas', 'Denver', 'Houston','LosAnge
 
 #Reading distances
 distances = genfromtxt('cities.txt', delimiter=' ')
+distances = numpy.square(distances)
 
 #Calclulating eigen vectors for the m matrix
 w,v = numpy.linalg.eig(distances)
@@ -18,3 +19,8 @@ print(w)
 u,s,vh = numpy.linalg.svd(distances)
 print(u.shape, s.shape)
 print(s)
+
+x = [i for i in range(1,21)]
+
+plt.plot(x,s)
+plt.show()
